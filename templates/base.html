@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ready Resume</title>
+    <link rel="stylesheet" href="../static/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- NAVBAR CREATION -->
+    <header class="header">
+        <div class="container">
+            <div class="wrapper">
+                <nav class="navbar">
+                    <div class="nav__item">
+                        <a href="/create">Create Post</a>
+                    </div>
+                    <div class="nav__item">
+                        <a href="/get_latest">Parse News</a>
+                    </div>
+                    <div class="nav__item">
+                        <a href="/video"> Video-Chat</a>
+                    </div>
+                </nav>
+                <div class="header__functions">
+                    <form action="" class="search-bar">
+                        <input type="text" placeholder="Search...">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </form>
+                    <div class="registr__links">
+                        <div class="sign__up">
+                            <!-- <a href="/register.html">Sign Up</a> -->
+                        </div>
+                        <div class="sign__in">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="container">
+            <!-- AKIPRESS NEWS SECTION -->
+            <!-- {% if page == 'pars' %}
+            <div class="akipress-news">
+                <h2>Parsed News</h2>
+                <ul>
+                    {% for news_item in news %}
+                    <li>{{ news_item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %} -->
+            {% block content %}
+            {% endblock %}
+
+            <!-- POSTS SECTION -->
+            {% if page == 'home' %}
+            <div class="posts">
+                <h1>Posts</h1>
+                {% for post in posts %}
+                <div class="post">
+                    <div class="inner">
+                        <img src="{{ post.image_path }}">
+                        <div class="description">
+                            <div class="box">
+                                <div class="title">
+                                    <h2>{{ post.title }}</h2>
+                                </div>
+                                <div class="comment">
+                                    <button id="commentsButton">
+                                        <i class="fa-regular fa-comment"></i>
+                                    </button>
+                                </div>
+                                <div class="delete">
+                                    <form action="/{{ post.id }}/delete" method="POST">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <p>{{ post.description }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMMENTS SECTION -->
+                <div class="comments">
+                    {% for comment in post.comments %}
+                    <div class="comment">
+                        <p><strong>{{ comment.author.email }}</strong></p>
+                        <p>{{ comment.content }}</p>
+                    </div>
+                    {% endfor %}
+                    <!-- COMMENT FORM -->
+                    <form method="POST" action="/{{ post.id }}/comment">
+                        <textarea name="content" placeholder="Enter your comment"></textarea>
+                        <br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="../static/assets/js/script.js"></script>
+    <!-- <script src="/static/base.js"></script> -->
+</body>
+
+</html>

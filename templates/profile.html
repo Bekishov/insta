@@ -1,0 +1,12 @@
+{% for post in posts %}
+<div class="post">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.description }}</p>
+    <img src="{{ post.image_path }}">
+    {% if current_user == user %}
+    <form method="POST" action="/{{ post.id }}/delete">
+        <input type="submit" value="Delete">
+    </form>
+    {% endif %}
+</div>
+{% endfor %}

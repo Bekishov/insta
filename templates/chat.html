@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js" integrity="sha512-WrtqnJKWVXjjuhzk03+alL1a8JNWXYIa9ZqGf8PjfqbsmUAG7XwV8D2Az8kDGOp0hsZ2/1Eu2vGk+5o5Xqr7gQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var socket = io();
+        var chatForm = document.getElementById('chat-form');
+        var chatInput = document.getElementById('chat-input');
+        var messagesList = document.getElementById('messages-list');
+
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var message = chatInput.value;
+            socket.emit('chat_message', message);
+            chatInput.value = '';
+        });
+
+        socket.on('chat_message', function(message) {
+            var li = document.createElement('li');
+            li.textContent = message;
+            messagesList.appendChild(li);
+        });
+    </script>
+</head>
+<body>
+    <h1>Chat</h1>
+
+    {% if current_user.is_authenticated %}
+        <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Enter your message">
+            <input type="submit" value="Send">
+        </form>
+    {% else %}
+        <p>Please log in to participate in the chat.</p>
+    {% endif %}
+
+    <h2>Messages:</h2>
+    <ul id="messages-list">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

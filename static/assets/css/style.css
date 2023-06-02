@@ -1,0 +1,344 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 16px;
+  background: #f0f0f0;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+button,
+textarea,
+input,
+select {
+  border: none;
+  outline: none;
+  background: none;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1230px;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header {
+  background: #fff;
+  padding: 15px 0 15px;
+}
+.header .navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header .navbar a {
+  font-size: 20px;
+}
+.header .header__functions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.header .header__functions form {
+  position: relative;
+}
+.header .header__functions form input {
+  width: 265px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px;
+}
+.header .header__functions form i {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+}
+.header .header__functions .registr__links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header .header__functions .registr__links .sign__up a {
+  padding: 10px;
+  background: #ff5656;
+  border-radius: 6px;
+  color: #ffffff;
+}
+.header .header__functions .registr__links .sign__in a {
+  padding: 10px;
+  border: 1px solid #ff5656;
+  border-radius: 6px;
+  color: black;
+}
+.akipress-news {
+  padding-top: 60px;
+  text-align: center;
+}
+.akipress-news h2 {
+  font-size: 40px;
+}
+.akipress-news ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+.posts {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.posts h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+.posts .post{
+    display: flex;
+}
+
+.posts .post .inner {
+  background: #fff;
+  width: 340px;
+  margin: 40px auto 0;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+.posts .post .inner img {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.posts .post .inner .description {
+  padding: 10px;
+}
+.posts .post .inner .description .box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.posts .post .inner .description .box button {
+  cursor: pointer;
+}
+.posts .post .inner .description p {
+  font-size: 15px;
+}
+.posts .comments {
+  display: none;
+  /* position: absolute; */
+  /* right: 17%; */
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  /* top: 59%; */
+}
+.posts .comments.active {
+    display: block;
+}
+.posts .comments textarea {
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 5px 10px;
+  resize: none;
+  height: 100px;
+}
+.posts .comments input {
+  margin-top: 20px;
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  color: #fff;
+  background: #ff5656;
+  cursor: pointer;
+}
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.inner .create__title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.inner .create__form {
+  margin: 0 auto;
+  width: 400px;
+  text-align: center;
+}
+.inner .create__form .form-group {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.inner .create__form .form-group input {
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.inner .create__form .form-group textarea {
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 5px 10px;
+  resize: none;
+  height: 100px;
+}
+.inner .create__form .form-group .form-control-file {
+  border: none;
+}
+.inner .create__form button {
+  cursor: pointer;
+  border-radius: 10px;
+  background: #000;
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+}
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.login .inputbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.login .inputbox ion-icon {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+}
+.login .inputbox input {
+  border-radius: 10px;
+  background: #fff;
+  padding: 10px;
+  width: 250px;
+}
+.login .forget {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login .forget a {
+  font-size: 14px;
+  color: grey;
+}
+.login button {
+  margin: 20px 0 20px;
+  background: #ff5656;
+  border-radius: 10px;
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+.login .register a {
+  color: #ff5656;
+}
+.sign-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.sign-up h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.sign-up .inputbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.sign-up .inputbox ion-icon {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+}
+.sign-up .inputbox input {
+  border-radius: 10px;
+  background: #fff;
+  padding: 10px;
+  width: 250px;
+}
+.sign-up .forget {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sign-up .forget a {
+  font-size: 14px;
+  color: grey;
+}
+.sign-up button {
+  margin: 20px 0 20px;
+  background: #ff5656;
+  border-radius: 10px;
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  color: #fff;
+}
+.sign-up .register a {
+  color: #ff5656;
+}
+.video-chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+.video-chat h2 {
+  margin-bottom: 20px;
+}
+.video-chat input {
+  border-radius: 10px;
+  background: #fff;
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+}
+.video-chat button {
+  margin-top: 20px;
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  color: #fff;
+  background: #ff5656;
+  cursor: pointer;
+}

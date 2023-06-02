@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Search</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <!-- Add any additional styling or scripts here -->
+</head>
+<body>
+    <!-- Add your header and navigation here -->
+
+    <div class="container">
+        <h2>User Search</h2>
+        <form action="{{ url_for('search') }}" method="POST">
+            <input type="text" name="email" placeholder="Search by email">
+            <button type="submit">Search</button>
+        </form>
+        {% if user %}
+        <h3>{{ user.name }}'s Posts:</h3>
+        <ul>
+            {% for post in posts %}
+            <li>
+                <h4>{{ post.title }}</h4>
+                <p>{{ post.description }}</p>
+                <!-- Add any additional post details here -->
+            </li>
+            {% endfor %}
+        </ul>
+        <form action="{{ url_for('subscribe', id=user.id) }}" method="POST">
+            <button type="submit">Subscribe</button>
+        </form>
+        {% endif %}
+    </div>
+
+    <!-- Add your footer here -->
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Summary</title>
+</head>
+<body>
+    <h1>Create Summary</h1>
+
+    <form method="POST" action="/">
+        <button type="submit">Generate Summary</button>
+    </form>
+
+    {% if audio_messages %}
+    <h2>Generated Audio Messages:</h2>
+    <ul>
+        {% for audio_message in audio_messages %}
+        <li><audio controls><source src="{{ audio_message }}" type="audio/mpeg"></audio></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>

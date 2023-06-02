@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- AKIPRESS PARSED NEWS SECTION -->
+  <div class="akipress-news">
+    <h2>Parsed News</h2>
+    <ul>
+      {% for audio_path in audio_messages %}
+        <li>
+          <audio controls>
+            <source src="{{ url_for('static', filename=audio_path) }}" type="audio/mpeg">
+          </audio>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

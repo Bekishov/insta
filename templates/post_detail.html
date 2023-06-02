@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.description }}</p>
+
+    <h2>Комментарии</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>{{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Оставить комментарий</h2>
+    <form method="POST" action="/{{ post.id }}/add_comment">
+        <textarea name="content" placeholder="Введите комментарий"></textarea>
+        <br>
+        <input type="submit" value="Отправить">
+    </form>
+</body>
+</html>
